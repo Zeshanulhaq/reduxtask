@@ -14,6 +14,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useDispatch } from "react-redux";
 import { submit } from "../features/userSlice";
+import { useHistory } from "react-router-dom";
 
 const theme = createTheme();
 
@@ -25,6 +26,7 @@ const SignUp = () => {
   const [phone, setphone] = useState("");
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,6 +39,8 @@ const SignUp = () => {
         phone: phone,
       })
     );
+    alert("Data stored successfully on redux store");
+    history.push("/details");
   };
 
   return (
